@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view style="height: 100%">
+    <view class="content">
+      <view class="swiper">
+        <swiper
+          indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}"
+          interval="{{interval}}"
+          duration="{{duration}}"
+          indicator-active-color="rgb(255, 255, 255)"
+          circular="{{circular}}"
+          current="{{current}}"
+          class="swiperContent">
+          <block wx:for="{{imgUrls}}" wx:key="index">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="operation">
+        <i-panel class="cell-panel-demo">
+          <i-cell-group>
+            <i-cell
+              wx:for="{{operList}}"
+              wx:key="index"
+              title="{{item.title}}"
+              label="{{item.label}}"
+              is-link
+              id="{{item.page}}"
+              bind:click="handleRouter">
+              <image id="{{item.page}}" slot="footer" class="cellImg" src="{{item.src}}" />
+            </i-cell>
+          </i-cell-group>
+        </i-panel>
+      </view>
+    </view>
+  </scroll-view>
+  <i-modal title="温馨提示" visible="{{ visible }}" actions="{{actions}}" bind:click="handleModle">
+    <view>{{modleText}}</view>
+  </i-modal>
+  <i-modal title="温馨提示" visible="{{ visibleRe }}" actions="{{actionsRe}}" bind:click="handleCoupons">
+    <view>欢迎您登录，系统已给您赠送停车优惠券</view>
+  </i-modal>
+  <i-toast id="toast" />
+  <i-message id="message" />
+</view>

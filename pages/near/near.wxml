@@ -1,0 +1,60 @@
+<view class="nearpage">
+  <view class="map" style="height:{{mapHeight}}" animation="{{mapanimation}}">
+    <map
+      id="map"
+      class="parkmap"
+      show-location
+      show-compass
+      show-scale
+      enable-rotate
+      enable-traffic="{{traffic}}"
+      longitude="{{lng}}"
+      latitude="{{lat}}"
+      scale="{{scale}}"
+      markers="{{markers}}"
+      bindupdated="bindupdated"
+      bindregionchange="bindregionchange"
+      bindmarkertap="markertap">
+      <cover-view class="reContent" catchtap="controltap">
+        <cover-image class="reset" src="/img/reset.png"></cover-image>
+      </cover-view>
+      <cover-view class="menu" style="height:{{menuHeight}}rpx" animation="{{animation}}">
+        <cover-view class="moreContent" catchtap="showMenu">
+          <cover-image class="more" src="/img/moreList.png"></cover-image>
+        </cover-view>
+        <block wx:for="{{imgList}}" wx:key="{{index}}">
+          <cover-view class="image" catchtap="checkMenu" id="{{index}}">
+            <cover-image class="icon" src="{{activeNo == index? item.srcActive : item.src}}"></cover-image>
+            <cover-view class="menuName {{activeNo == index? 'active' : ''}}">{{item.name}}</cover-view>
+          </cover-view>
+        </block>
+      </cover-view>
+      <cover-view class="search" bindtap="toSearch">
+        <cover-image class="searchIcon" src="/img/search.png"></cover-image>
+      </cover-view>
+    </map>
+  </view>
+  <view class="parkContent" style="height:{{parkHeight}}rpx" animation="{{listanimation}}">
+    <wxs src="../../filter/filter.wxs" module="filter" />
+    <scroll-view class="park" scroll-y="{{scroll}}"  bindscrolltolower="searchScrollLower">
+      <block wx:for="{{parkList}}" wx:key="{{index}}">
+        <view class="parkDetail" bindtap="toParkDetail" id="{{index}}">
+          <view class="parkName">{{item.roadName}}</view>
+          <view class="roadName">{{item.roadAddress}}</view>
+          <view class="num">空泊位：<text style="color:#19be6b">{{item.freeTotal}}</text><text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>总泊位：{{item.total}}</view>
+          <button class="navBtn" id="{{index}}" catchtap="goNavigation">导航</button>
+          <view class="distance">距离:{{filter.distance(item.distance)}}</view>
+        </view>
+      </block>
+      <i-load-more wx:if="{{allLoading}}" i-class="loadMore" tip="加载中" loading="{{moreLoading}}" />
+      <!-- <i-divider wx:if="{{!allLoading}}" color="#2d8cf0" lineColor="#2d8cf0">
+        已加载全部数据
+      </i-divider> -->
+    </scroll-view>
+    <view class="morePark" wx:if="{{!more}}" bindtap="getMore">点击查看更多</view>
+    <view class="morePark" wx:else bindtap="getMore">收起</view>
+    <i-spin size="large" fix wx:if="{{ loading }}"></i-spin>
+  </view>
+  <i-toast id="toast" />
+  <i-message id="message" />
+</view>

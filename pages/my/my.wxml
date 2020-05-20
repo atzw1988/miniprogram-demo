@@ -1,0 +1,4 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  个人中心
+</view>

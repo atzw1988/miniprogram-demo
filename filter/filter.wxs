@@ -1,0 +1,21 @@
+var parkingTime = function (time) {
+  var text = ''
+  var seconds = Math.ceil(time/1000)
+  if (seconds <= 60) {
+    text = seconds + '秒'
+  } else if (seconds > 60 && seconds <= 3600) {
+    text = parseInt(seconds / 60) + '分钟' + (seconds % 60) + '秒'
+  } else {
+    text = parseInt(seconds / 3600) + '小时' + parseInt((seconds % 3600) / 60) + '分钟' + (seconds % 60) + '秒'
+  }
+  return text
+}
+
+var money = function (num) {
+  return parseFloat(num / 100)
+}
+
+module.exports = {
+  parkingTime: parkingTime,
+  money: money
+}

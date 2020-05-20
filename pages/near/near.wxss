@@ -1,0 +1,170 @@
+/* pages/near/near.wxss */
+.nearpage {
+  width: 100%;
+  height: 100%;
+}
+
+/* 地图样式 */
+.map {
+  width: 100%;
+  /* height: calc(100% - 200rpx); */
+  background-color: #fff;
+}
+
+.parkmap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 搜索框 */
+.search{
+  width: 70%;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  margin: 30rpx auto 0;
+}
+
+.searchIcon {
+  float: right;
+  margin-top: 5rpx;
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 地图控件样式 */
+.reContent {
+  position: absolute;
+  left: 20rpx;
+  bottom: 20rpx;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 4rpx #cfcfcf;
+  -webkit-box-shadow:0px 0px 2px #cfcfcf;
+}
+
+.reset {
+  width: 30px;
+  height: 30px;
+  margin: 3px auto
+}
+
+.menu {
+  position: absolute;
+  width: 100rpx;
+  background-color: #fff;
+  right: 20rpx;
+  top: 150rpx;
+  box-shadow: 1px 1px 1px #495060;
+  -webkit-box-shadow: 1px 1px 1px #495060;
+}
+
+.moreContent {
+  width: 100rpx;
+  height: 50rpx;
+  border-bottom: 1px solid #495060;
+}
+
+.more {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 auto;
+}
+
+.image {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 10rpx auto 0;
+}
+
+.menuName {
+  font-size: 16rpx;
+  color: #495060;
+  margin-top: 10rpx;
+}
+
+.active {
+  color: #16adf8;
+}
+
+.parkContent {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eeee;
+}
+
+.park {
+  width: 100%;
+  height: calc(100% - 40rpx);
+}
+
+.parkDetail {
+  width: 90%;
+  height: 140rpx;
+  margin: 10rpx auto;
+  border-bottom: 1rpx solid #dddee1;
+  /* border-radius: 15rpx; */
+  padding: 0 20rpx;
+  position: relative;
+}
+
+.parkName {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  font-weight: 500;
+}
+
+.roadName,
+.num,
+.morePark {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.morePark {
+  text-align: center;
+  color: #16adf8;
+}
+
+.navBtn {
+  width: 150rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  background-color: #2b85e4;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.distance {
+  font-size: 22rpx;
+  position: absolute;
+  width: 210rpx;
+  height: 30rpx;
+  right: 0;
+  top: 80rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #495060;
+}
